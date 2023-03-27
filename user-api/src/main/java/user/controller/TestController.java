@@ -1,6 +1,6 @@
-package com.zerobase.cms.user.controller;
+package user.controller;
 
-import com.zerobase.cms.user.service.EmailSendService;
+import user.service.EmailSendService;
 import feign.Response;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;

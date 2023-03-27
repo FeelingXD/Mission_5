@@ -1,15 +1,15 @@
-package com.zerobase.cms.user.application;
+package user.application;
 
-import com.zerobase.cms.user.client.MailgunClient;
-import com.zerobase.cms.user.client.mailgun.SendMailForm;
-import com.zerobase.cms.user.domain.SignUpForm;
-import com.zerobase.cms.user.domain.model.Customer;
-import com.zerobase.cms.user.exception.CustomException;
-import com.zerobase.cms.user.exception.ErrorCode;
-import com.zerobase.cms.user.service.SignUpCustomerService;
+import user.client.mailgun.SendMailForm;
 import lombok.RequiredArgsConstructor;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.springframework.stereotype.Service;
+import user.client.MailgunClient;
+import user.domain.SignUpForm;
+import user.domain.model.Customer;
+import user.exception.CustomException;
+import user.exception.ErrorCode;
+import user.service.SignUpCustomerService;
 
 import java.time.LocalDateTime;
 

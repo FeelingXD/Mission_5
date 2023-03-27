@@ -1,4 +1,4 @@
-package com.zerobase.cms.user;
+package user;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.boot.SpringApplication;

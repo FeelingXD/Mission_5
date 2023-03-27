@@ -1,4 +1,4 @@
-package com.zerobase.cms.user.exception;
+package user.exception;
 
 import lombok.Getter;
 
