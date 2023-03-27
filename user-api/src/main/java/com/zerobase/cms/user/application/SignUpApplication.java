@@ -4,7 +4,7 @@ import com.zerobase.cms.user.client.MailgunClient;
 import com.zerobase.cms.user.client.mailgun.SendMailForm;
 import com.zerobase.cms.user.domain.SignUpForm;
 import com.zerobase.cms.user.domain.model.Customer;
-import com.zerobase.cms.user.exception.CustomerException;
+import com.zerobase.cms.user.exception.CustomException;
 import com.zerobase.cms.user.exception.ErrorCode;
 import com.zerobase.cms.user.service.SignUpCustomerService;
 import lombok.RequiredArgsConstructor;
@@ -28,7 +28,7 @@ public class SignUpApplication {
 
     public String customerSignUp(SignUpForm form){
         if(signUpCustomerService.isEmailExist(form.getEmail())){
-            throw new CustomerException(ErrorCode.ALREADY_REGISTERED_USER);
+            throw new CustomException(ErrorCode.ALREADY_REGISTERED_USER);
             //exception
         }else{
             Customer c= signUpCustomerService.signUp(form);
