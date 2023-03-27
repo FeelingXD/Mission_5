@@ -3,7 +3,7 @@ package com.zerobase.cms.user.service;
 import com.zerobase.cms.user.domain.SignUpForm;
 import com.zerobase.cms.user.domain.model.Customer;
 import com.zerobase.cms.user.domain.repository.CustomerRepository;
-import com.zerobase.cms.user.exception.CustomerException;
+import com.zerobase.cms.user.exception.CustomException;
 import com.zerobase.cms.user.exception.ErrorCode;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -29,16 +29,16 @@ public class SignUpCustomerService {
     public void verifyEmail(String email,String code){
 
         Customer customer =customerRepository.findByEmail(email)
-                .orElseThrow(() -> new CustomerException(ErrorCode.NOT_FOUND_USER));
+                .orElseThrow(() -> new CustomException(ErrorCode.NOT_FOUND_USER));
 
         if(customer.isVerify()){
-            throw new CustomerException(ErrorCode.ALREADY_VERIFY);
+            throw new CustomException(ErrorCode.ALREADY_VERIFY);
         }
         else if(!customer.getVerificationCode().equals(code)){
-            throw new CustomerException(ErrorCode.WRONG_VERIFICATION);
+            throw new CustomException(ErrorCode.WRONG_VERIFICATION);
         }
         else if(customer.getVerifyExpiredAt().isBefore(LocalDateTime.now())){
-            throw  new CustomerException(ErrorCode.EXPIRE_CODE);
+            throw  new CustomException(ErrorCode.EXPIRE_CODE);
         }
         customer.setVerify(true);
 
@@ -58,7 +58,7 @@ public class SignUpCustomerService {
             customer.setVerifyExpiredAt(LocalDateTime.now().plusDays(1));
             return customer.getVerifyExpiredAt();
         }
-        throw new CustomerException(ErrorCode.NOT_FOUND_USER);
+        throw new CustomException(ErrorCode.NOT_FOUND_USER);
 
     }
 }
