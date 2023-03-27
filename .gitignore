@@ -59,6 +59,5 @@ build/
 /target/
 /mvnw
 /mvnw.cmd
-/files/
-user-api/src/main/resources/application.properties
+
 *.properties
