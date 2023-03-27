@@ -1,4 +1,4 @@
-package com.zerobase.cms.user.client.mailgun;
+package user.client.mailgun;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
