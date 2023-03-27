@@ -37,6 +37,8 @@ dependencies {
 
 
     implementation 'org.springframework.cloud:spring-cloud-starter-openfeign'
+    implementation 'org.apache.commons:commons-lang3:3.12.0'
+
 
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
