@@ -1,4 +1,4 @@
-package user.exception;
+package com.zerobase.cms.user.exception;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -19,7 +19,6 @@ public class ExceptionController {
         log.warn("api Exception :{}" ,c.getErrorCode());
         return ResponseEntity.badRequest().body(new ExceptionResponse(c.getMessage(),c.getErrorCode()));
     }
-
 
     @Getter
     @ToString

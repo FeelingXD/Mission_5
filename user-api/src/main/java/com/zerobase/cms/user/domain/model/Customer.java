@@ -1,8 +1,8 @@
 package com.zerobase.cms.user.domain.model;
 
-import com.zerobase.cms.user.domain.SignUpForm;
 import lombok.*;
 import org.hibernate.envers.AuditOverride;
+import com.zerobase.cms.user.domain.SignUpForm;
 
 import javax.persistence.*;
 import java.time.LocalDate;

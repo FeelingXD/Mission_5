@@ -1,4 +1,4 @@
-package user.domain;
+package com.zerobase.cms.user.domain;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
