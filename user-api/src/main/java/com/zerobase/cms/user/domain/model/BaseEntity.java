@@ -1,4 +1,4 @@
-package user.domain.model;
+package com.zerobase.cms.user.domain.model;
 
 import lombok.Getter;
 import org.springframework.data.annotation.CreatedDate;
