@@ -60,3 +60,4 @@ build/
 /mvnw
 /mvnw.cmd
 /files/
+*.properties
