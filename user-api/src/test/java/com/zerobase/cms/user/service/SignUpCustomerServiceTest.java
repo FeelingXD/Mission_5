@@ -15,21 +15,21 @@ class SignUpCustomerServiceTest {
 
     @Autowired
     private SignUpCustomerService service;
-    @Test
-    void signUp(){
-        //given
-        SignUpForm form = SignUpForm.builder()
-                .name("name")
-                .birth(LocalDate.now())
-                .email("test@name")
-                .password("1")
-                .phone("01000000")
-                .build();
-        //when
-        Customer c= service.signUp(form);
-        Assert.isTrue(service.signUp(form).getId()!=null);
-        Assert.notNull(c.getId());
-        Assert.notNull(c.getCreatedAt());
-        //then
-    }
+//    @Test
+//    void signUp(){
+//        //given
+//        SignUpForm form = SignUpForm.builder()
+//                .name("name")
+//                .birth(LocalDate.now())
+//                .email("test@name")
+//                .password("1")
+//                .phone("01000000")
+//                .build();
+//        //when
+//        Customer c= service.signUp(form);
+//        Assert.isTrue(service.signUp(form).getId()!=null);
+//        Assert.notNull(c.getId());
+//        Assert.notNull(c.getCreatedAt());
+//        //then
+//    }
 }

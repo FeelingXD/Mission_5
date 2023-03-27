@@ -14,10 +14,11 @@ public class EmailSendService {
     public Response sendEmail(){
         SendMailForm form= SendMailForm.builder()
                 .from("testAccount@no-reply.com")
-                .to("wlals425315@gmail.com")
+                .to("wlals425315@naver.com")
                 .subject("test subject")
                 .text("test text")
                 .build();
         return mailgunClient.sendEMail(form);
     }
+
 }
