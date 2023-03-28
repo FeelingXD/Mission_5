@@ -30,11 +30,11 @@ public class SignUpController {
 
     @PostMapping("/seller")
     public ResponseEntity<String> sellerSignUp(@RequestBody SignUpForm form){
-        return ResponseEntity.ok(signUpApplication.customerSignUp(form));
+        return ResponseEntity.ok(signUpApplication.sellerSignUp(form));
     }
     @GetMapping("/seller/verify")
     public ResponseEntity<String> verifySeller(String email,String code){
-        signUpApplication.customerVerify(email,code);
+        signUpApplication.sellerVerify(email,code);
         return ResponseEntity.ok("인증이 완료되었습니다.");
     }
 

@@ -31,6 +31,8 @@ public class Seller extends BaseEntity{
     private LocalDateTime verifyExpiredAt;
     private String verificationCode;
     private boolean verify;
+    @Column(columnDefinition = "int default 0")
+    private Integer balance;
 
     public static Seller from(SignUpForm form){
         return Seller.builder()
@@ -42,6 +44,9 @@ public class Seller extends BaseEntity{
                 .verifyExpiredAt(null)
                 .verificationCode(null)
                 .verify(false)
+                .balance(0)
                 .build();
     }
+
+
 }

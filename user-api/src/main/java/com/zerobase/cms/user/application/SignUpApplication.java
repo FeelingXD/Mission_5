@@ -23,7 +23,6 @@ public class SignUpApplication {
 
     private final MailgunClient mailgunClient;
     private final SignUpCustomerService signUpCustomerService;
-
     private final SellerService sellerService;
 
     public void customerVerify(String email,String code){

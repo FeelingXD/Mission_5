@@ -65,7 +65,7 @@ public class SellerService {
 
     public Optional<Seller> findValidCustomerByEmailAndPassword(String email, String password) {
         return sellerRepository.findByEmail(email).stream()
-                .filter(customer -> customer.getPassword().equals(password)&&customer.isVerify()
+                .filter(seller -> seller.getPassword().equals(password)&&seller.isVerify()
                 ).findFirst();
     }
 }

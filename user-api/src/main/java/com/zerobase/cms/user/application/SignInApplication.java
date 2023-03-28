@@ -34,7 +34,6 @@ public class SignInApplication {
         Seller s = sellerService.findValidCustomerByEmailAndPassword(form.getEmail(),
                 form.getPassword()).orElseThrow(() -> new CustomException(ErrorCode.LOGIN_CHECK_FAIL));
 
-
         return provider.createToken(s.getEmail(), s.getId(), UserType.SELLER);
     }
 
