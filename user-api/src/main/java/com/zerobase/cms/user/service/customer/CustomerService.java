@@ -1,4 +1,4 @@
-package com.zerobase.cms.user.service;
+package com.zerobase.cms.user.service.customer;
 
 import com.zerobase.cms.user.domain.model.Customer;
 import com.zerobase.cms.user.domain.repository.CustomerRepository;
@@ -18,7 +18,7 @@ public class CustomerService {
                 .stream().filter(customer -> customer.getEmail().equals(email))
                 .findFirst();
     }
-    public Optional<Customer> findValidCustomer(String email, String password){
+    public Optional<Customer> findValidCustomerByEmailAndPassword(String email, String password){
         return customerRepository.findByEmail(email).stream()
                 .filter(customer -> customer.getPassword().equals(password)&&customer.isVerify()
         ).findFirst();
