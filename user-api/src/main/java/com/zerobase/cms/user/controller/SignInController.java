@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/signIn")
+@RequestMapping("/signin")
 public class SignInController {
 
     private final SignInApplication signInApplication;
