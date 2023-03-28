@@ -1,0 +1,34 @@
+### 회원가입(고객)
+POST http://localhost:8081/signup/customer
+Content-Type: application/json
+
+{
+  "birth": "2023-03-28",
+  "email": "scratch@naver.com",
+  "name": "string",
+  "password": "string",
+  "phone": "string"
+}
+### 이메일 인증(고객)
+GET http://localhost:8081/signup/customer/verify?email=scratch@naver.com&code=K0RCEWOwBn
+
+### 회원정보조회
+GET http://localhost:8081/customer/getInfo
+Content-Type: application/json
+X-AUTH-TOKEN:eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJpbS9zdXRYbS9YSnVRQmZMODdPK3MvMFlWZTV6c1FMRmM5L1BHOXFtRTBFPSIsImp0aSI6InFpalNBakR1VUZRVnlabDFkMStsZ1E9PSIsInJvbGVzIjoiQ1VTVE9NRVIiLCJpYXQiOjE2ODAwMDAwOTMsImV4cCI6MTY4MDA4NjQ5M30.IpEXDxv-Yv4VGW1yuF9p7C8LPPBr28qwdK0lc5WUYvM
+
+{
+  "email": "scratch@naver.com",
+  "password": "string"
+}
+
+### 잔액 변경(고객)
+POST http://localhost:8081/customer/balance
+Content-Type:application/json
+X-AUTH-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJpbS9zdXRYbS9YSnVRQmZMODdPK3MvMFlWZTV6c1FMRmM5L1BHOXFtRTBFPSIsImp0aSI6InFpalNBakR1VUZRVnlabDFkMStsZ1E9PSIsInJvbGVzIjoiQ1VTVE9NRVIiLCJpYXQiOjE2ODAwMDAwOTMsImV4cCI6MTY4MDA4NjQ5M30.IpEXDxv-Yv4VGW1yuF9p7C8LPPBr28qwdK0lc5WUYvM
+
+{
+  "from": "server",
+  "message": "돈충전",
+  "money": 50000
+}
