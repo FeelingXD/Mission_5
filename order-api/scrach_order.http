@@ -1,9 +1,9 @@
-### 프로덕트
+### 프로덕트 추가
 POST http://localhost:8082/seller/product
 Content-Type: application/json
 X-AUTH-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhcWh0Y1BzZnV5TnhmS04xV05WZm43SCsrT1VMVmFHaHltWEZGSXRPZ3E0PSIsImp0aSI6IkNtWUR2NU1LNVlVeWlrOEtHTkR3b3c9PSIsInJvbGVzIjoiU0VMTEVSIiwiaWF0IjoxNjgwMDM3MTg4LCJleHAiOjE2ODAxMjM1ODh9.CMms6PdNghhakJ-_KndBHyonI1DEUPq-wYBCbk58XdU
 
-
+ 
 {
   "description": "상품설명",
   "items": [
@@ -72,58 +72,11 @@ X-AUTH-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhcWh0Y1BzZnV5TnhmS04xV05WZm43SCsrT
 
 
 
-### 이메일 인증(고객)
-GET http://localhost:8081/signup/customer/verify?email=scratch@naver.com&code=K0RCEWOwBn
-
-### 회원정보조회
-GET http://localhost:8081/customer/getInfo
-Content-Type: application/json
-X-AUTH-TOKEN:eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJpbS9zdXRYbS9YSnVRQmZMODdPK3MvMFlWZTV6c1FMRmM5L1BHOXFtRTBFPSIsImp0aSI6InFpalNBakR1VUZRVnlabDFkMStsZ1E9PSIsInJvbGVzIjoiQ1VTVE9NRVIiLCJpYXQiOjE2ODAwMDAwOTMsImV4cCI6MTY4MDA4NjQ5M30.IpEXDxv-Yv4VGW1yuF9p7C8LPPBr28qwdK0lc5WUYvM
-
-
-
-### 잔액 변경(고객)
-POST http://localhost:8081/customer/balance
-Content-Type:application/json
-X-AUTH-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJpbS9zdXRYbS9YSnVRQmZMODdPK3MvMFlWZTV6c1FMRmM5L1BHOXFtRTBFPSIsImp0aSI6InFpalNBakR1VUZRVnlabDFkMStsZ1E9PSIsInJvbGVzIjoiQ1VTVE9NRVIiLCJpYXQiOjE2ODAwMDAwOTMsImV4cCI6MTY4MDA4NjQ5M30.IpEXDxv-Yv4VGW1yuF9p7C8LPPBr28qwdK0lc5WUYvM
-
-{
-  "from": "server",
-  "message": "돈충전",
-  "money": 50000
-}
-
-### 회원가입 (샐러)
-POST http://localhost:8081/signup/seller
+### 프로덕트 검색
+GET http://localhost:8082/search/product?name=나이키
 Content-Type: application/json
 
-{
-  "birth": "1979-12-02",
-  "email": "wlals4253@gmail.com",
-  "name": "string",
-  "password": "ko",
-  "phone": "010-0000-0000"
-}
-
-
-### 이메일 인증 (샐러)
-GET http://localhost:8081/signup/seller/verify?email=wlals4253@gmail.com&code=hjKAlPh9UL
-
-
-
-### 로그인 (샐러)
-POST http://localhost:8081/signin/seller
+### 프로덕트 검색
+GET http://localhost:8082/search/product/detail?productId=1
 Content-Type: application/json
-
-{
-  "email": "wlals4253@gmail.com",
-  "password": "ko"
-}
-
-
-### 회원 정보 조회 (샐러)
-GET http://localhost:8081/seller/getInfo
-Content-Type: application/json
-X-AUTH-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhcWh0Y1BzZnV5TnhmS04xV05WZm43SCsrT1VMVmFHaHltWEZGSXRPZ3E0PSIsImp0aSI6IkNtWUR2NU1LNVlVeWlrOEtHTkR3b3c9PSIsInJvbGVzIjoiU0VMTEVSIiwiaWF0IjoxNjgwMDM3MTg4LCJleHAiOjE2ODAxMjM1ODh9.CMms6PdNghhakJ-_KndBHyonI1DEUPq-wYBCbk58XdU
-
 
