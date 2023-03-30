@@ -18,6 +18,7 @@ import java.util.stream.Collectors;
 @Builder
 @Audited
 @AuditOverride(forClass= BaseEntity.class)
+@ToString
 public class Product extends BaseEntity{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
