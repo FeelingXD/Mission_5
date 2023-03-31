@@ -17,6 +17,7 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+
 @SpringBootTest
 class CartApplicationTest {
     @Autowired
@@ -54,7 +55,6 @@ class CartApplicationTest {
 
         cart = cartApplication.getCart(customerId);
         assertEquals(cart.getMessages().size(),1);
-
 
     }
 
