@@ -40,4 +40,5 @@ public class CustomerController {
         UserVo vo= provider.getUserVo(token);
         return ResponseEntity.ok(customerBalanceService.changeBalance(vo.getId(),form).getCurrentMoney());
     }
+
 }
