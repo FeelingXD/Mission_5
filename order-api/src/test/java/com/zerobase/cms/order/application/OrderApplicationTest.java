@@ -1,35 +1,46 @@
 package com.zerobase.cms.order.application;
 
-//import com.zerobase.cms.order.config.TestRedisConfig;
+import com.zerobase.cms.order.client.UserClient;
 import com.zerobase.cms.order.domain.model.Product;
+import com.zerobase.cms.order.domain.model.ProductItem;
 import com.zerobase.cms.order.domain.product.AddProductCartForm;
 import com.zerobase.cms.order.domain.product.AddProductForm;
 import com.zerobase.cms.order.domain.product.AddProductItemForm;
 import com.zerobase.cms.order.domain.redis.Cart;
 import com.zerobase.cms.order.domain.repository.ProductRepository;
+import com.zerobase.cms.order.service.ProductItemService;
 import com.zerobase.cms.order.service.ProductService;
+import com.zerobase.cms.user.config.client.mailgun.SendMailForm;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
-
-
 @SpringBootTest
-class CartApplicationTest {
+class OrderApplicationTest {
+    @Autowired
+    private OrderApplication orderApplication;
     @Autowired
     private CartApplication cartApplication;
     @Autowired
+    private UserClient userClient;
+    @Autowired
+    private ProductItemService productItemService;
+
+    @Autowired
     private ProductService productService;
+
     @Autowired
     private ProductRepository productRepository;
 
-    @Test
-    void ADD_TEST_MODIFY(){
+    private String token = "token";
 
+    @Test
+    @Transactional
+    void mailTextbuildertest(){
         Long customerId = 100L;
 
         cartApplication.clearCart(customerId);
@@ -38,27 +49,35 @@ class CartApplicationTest {
         System.out.println(p.toString());
         Product result = productRepository.findWithProductItemsById(p.getId()).get();
         System.out.println(result);
-        assertNotNull(result);
-
-        // 나머지 필드들에 대한 검증
-        assertEquals(result.getName(),"나이키 에어포스");
-        assertEquals(result.getDescription(),"신발");
-
-        assertEquals(result.getProductItems().size(),3);
-        assertEquals(result.getProductItems().get(0).getName(),"나이키 에어포스0");
-        assertEquals(result.getProductItems().get(0).getPrice(),10000);
-
-
         Cart cart = cartApplication.addCart(customerId,makeAddForm(result));
-        /// 데이터가 잘 들어 갔는지
-        assertEquals(cart.getMessages().size(),0);
 
-        cart = cartApplication.getCart(customerId);
-        assertEquals(cart.getMessages().size(),1);
+        StringBuilder mailText=new StringBuilder("");
 
+        for(Cart.Product product : cart.getProducts()){
+            for(Cart.ProductItem cartItem : product.getItems()){
+                ProductItem productItem = productItemService.getProductItem(cartItem.getId());
+                productItem.setCount(productItem.getCount()-cartItem.getCount());
 
+                //메일 내용 추가
+                mailText.append("\n상품 : " +productItem.getProduct()+ " 옵션 : " + productItem.getName() +" 가격 : " +productItem.getPrice());
+            }
+        }
 
+        //주문내역 메일보내기
+
+        mailText.append("\n 총가격 : "+ "총가격");
+
+        SendMailForm sendMailForm = SendMailForm.builder()
+                .from("zeroOrder@no-reply.com")
+                .to("고객이메일")
+                .subject("주문이 완료되었습니다.")
+                .text(mailText.toString())
+                .build();
+
+        System.out.println(mailText);
     }
+
+
 
     AddProductCartForm makeAddForm(Product p){
         AddProductCartForm.ProductItem productItem =
@@ -76,6 +95,8 @@ class CartApplicationTest {
                 .items(List.of(productItem)).build();
     }
 
+
+    private Long customerId=1L;
 
 
 
