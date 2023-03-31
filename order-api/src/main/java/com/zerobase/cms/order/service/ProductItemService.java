@@ -35,6 +35,10 @@ public class ProductItemService {
         product.getProductItems().add(productItem);
         return product;
     }
+    @Transactional
+    public ProductItem getProductItem(Long id){
+        return productItemRepository.getById(id);
+    }
 
     @Transactional
     public ProductItem updateProductItem(Long sellerId, UpdateProductItemForm form){

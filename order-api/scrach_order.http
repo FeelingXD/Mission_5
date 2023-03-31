@@ -1,9 +1,41 @@
+
+### 회원가입 (샐러)
+POST http://localhost:8081/signup/seller
+Content-Type: application/json
+
+{
+  "birth": "1979-12-02",
+  "email": "wlals4253@gmail.com",
+  "name": "string",
+  "password": "ko",
+  "phone": "010-0000-0000"
+}
+
+
+### 이메일 인증 (샐러)
+GET http://localhost:8081/signup/seller/verify?email=wlals4253@gmail.com&code=07TdeJP8UN
+
+
+
+### 로그인 (샐러)
+POST http://localhost:8081/signin/seller
+Content-Type: application/json
+
+{
+  "email": "wlals4253@gmail.com",
+  "password": "ko"
+}
+
+
+### 회원 정보 조회 (샐러)
+GET http://localhost:8081/seller/getInfo
+Content-Type: application/json
+X-AUTH-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhcWh0Y1BzZnV5TnhmS04xV05WZm43SCsrT1VMVmFHaHltWEZGSXRPZ3E0PSIsImp0aSI6IkNtWUR2NU1LNVlVeWlrOEtHTkR3b3c9PSIsInJvbGVzIjoiU0VMTEVSIiwiaWF0IjoxNjgwMjMzMTk4LCJleHAiOjE2ODAzMTk1OTh9.GET3BFdb5G4UlqHT2EryRIU1mfOtiziTP4_yqUpmPbc
 ### 프로덕트 추가
 POST http://localhost:8082/seller/product
 Content-Type: application/json
-X-AUTH-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhcWh0Y1BzZnV5TnhmS04xV05WZm43SCsrT1VMVmFHaHltWEZGSXRPZ3E0PSIsImp0aSI6IkNtWUR2NU1LNVlVeWlrOEtHTkR3b3c9PSIsInJvbGVzIjoiU0VMTEVSIiwiaWF0IjoxNjgwMDM3MTg4LCJleHAiOjE2ODAxMjM1ODh9.CMms6PdNghhakJ-_KndBHyonI1DEUPq-wYBCbk58XdU
+X-AUTH-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhcWh0Y1BzZnV5TnhmS04xV05WZm43SCsrT1VMVmFHaHltWEZGSXRPZ3E0PSIsImp0aSI6IkNtWUR2NU1LNVlVeWlrOEtHTkR3b3c9PSIsInJvbGVzIjoiU0VMTEVSIiwiaWF0IjoxNjgwMjMzMTk4LCJleHAiOjE2ODAzMTk1OTh9.GET3BFdb5G4UlqHT2EryRIU1mfOtiziTP4_yqUpmPbc
 
- 
 {
   "description": "상품설명",
   "items": [
@@ -18,19 +50,19 @@ X-AUTH-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhcWh0Y1BzZnV5TnhmS04xV05WZm43SCsrT
 ### 프로덕트 아이템 추가
 POST http://localhost:8082/seller/product/item
 Content-Type: application/json
-X-AUTH-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhcWh0Y1BzZnV5TnhmS04xV05WZm43SCsrT1VMVmFHaHltWEZGSXRPZ3E0PSIsImp0aSI6IkNtWUR2NU1LNVlVeWlrOEtHTkR3b3c9PSIsInJvbGVzIjoiU0VMTEVSIiwiaWF0IjoxNjgwMDM3MTg4LCJleHAiOjE2ODAxMjM1ODh9.CMms6PdNghhakJ-_KndBHyonI1DEUPq-wYBCbk58XdU
+X-AUTH-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhcWh0Y1BzZnV5TnhmS04xV05WZm43SCsrT1VMVmFHaHltWEZGSXRPZ3E0PSIsImp0aSI6IkNtWUR2NU1LNVlVeWlrOEtHTkR3b3c9PSIsInJvbGVzIjoiU0VMTEVSIiwiaWF0IjoxNjgwMjMwMDM4LCJleHAiOjE2ODAzMTY0Mzh9.cXUkHwD6U6kZQAOwtkZC3ksFMFV90RUSM-sR4-i6h3M
 
 
     {
       "productId": 1,
       "count": 1,
       "name": "270",
-      "price": 10000
+      "price": 100000
     }
 ### 프로덕트 수정
 PUT http://localhost:8082/seller/product
 Content-Type: application/json
-X-AUTH-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhcWh0Y1BzZnV5TnhmS04xV05WZm43SCsrT1VMVmFHaHltWEZGSXRPZ3E0PSIsImp0aSI6IkNtWUR2NU1LNVlVeWlrOEtHTkR3b3c9PSIsInJvbGVzIjoiU0VMTEVSIiwiaWF0IjoxNjgwMDM3MTg4LCJleHAiOjE2ODAxMjM1ODh9.CMms6PdNghhakJ-_KndBHyonI1DEUPq-wYBCbk58XdU
+X-AUTH-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhcWh0Y1BzZnV5TnhmS04xV05WZm43SCsrT1VMVmFHaHltWEZGSXRPZ3E0PSIsImp0aSI6IkNtWUR2NU1LNVlVeWlrOEtHTkR3b3c9PSIsInJvbGVzIjoiU0VMTEVSIiwiaWF0IjoxNjgwMjMwMDM4LCJleHAiOjE2ODAzMTY0Mzh9.cXUkHwD6U6kZQAOwtkZC3ksFMFV90RUSM-sR4-i6h3M
 
 
 {
@@ -49,8 +81,7 @@ X-AUTH-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhcWh0Y1BzZnV5TnhmS04xV05WZm43SCsrT
 ### 프로덕트 아이템 수정
 PUT  http://localhost:8082/seller/product/item
 Content-Type: application/json
-X-AUTH-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhcWh0Y1BzZnV5TnhmS04xV05WZm43SCsrT1VMVmFHaHltWEZGSXRPZ3E0PSIsImp0aSI6IkNtWUR2NU1LNVlVeWlrOEtHTkR3b3c9PSIsInJvbGVzIjoiU0VMTEVSIiwiaWF0IjoxNjgwMDM3MTg4LCJleHAiOjE2ODAxMjM1ODh9.CMms6PdNghhakJ-_KndBHyonI1DEUPq-wYBCbk58XdU
-
+X-AUTH-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhcWh0Y1BzZnV5TnhmS04xV05WZm43SCsrT1VMVmFHaHltWEZGSXRPZ3E0PSIsImp0aSI6IkNtWUR2NU1LNVlVeWlrOEtHTkR3b3c9PSIsInJvbGVzIjoiU0VMTEVSIiwiaWF0IjoxNjgwMjMzMTk4LCJleHAiOjE2ODAzMTk1OTh9.GET3BFdb5G4UlqHT2EryRIU1mfOtiziTP4_yqUpmPbc
 
 {
   "id": 1,
@@ -80,28 +111,10 @@ Content-Type: application/json
 GET http://localhost:8082/search/product/detail?productId=1
 Content-Type: application/json
 
-
-### 프로덕트 추가
-POST http://localhost:8082/seller/product
-Content-Type: application/json
-X-AUTH-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhcWh0Y1BzZnV5TnhmS04xV05WZm43SCsrT1VMVmFHaHltWEZGSXRPZ3E0PSIsImp0aSI6IkNtWUR2NU1LNVlVeWlrOEtHTkR3b3c9PSIsInJvbGVzIjoiU0VMTEVSIiwiaWF0IjoxNjgwMDM3MTg4LCJleHAiOjE2ODAxMjM1ODh9.CMms6PdNghhakJ-_KndBHyonI1DEUPq-wYBCbk58XdU
-
-
-{
-  "description": "상품설명",
-  "items": [
-    {
-      "count": 1,
-      "name": "280",
-      "price": 10000
-    }
-  ],
-  "name": "나이키 에어포스"
-}
 ### 카트 추가
 POST http://localhost:8082/customer/cart
 Content-Type: application/json
-X-AUTH-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhcWh0Y1BzZnV5TnhmS04xV05WZm43SCsrT1VMVmFHaHltWEZGSXRPZ3E0PSIsImp0aSI6IkNtWUR2NU1LNVlVeWlrOEtHTkR3b3c9PSIsInJvbGVzIjoiU0VMTEVSIiwiaWF0IjoxNjgwMDM3MTg4LCJleHAiOjE2ODAxMjM1ODh9.CMms6PdNghhakJ-_KndBHyonI1DEUPq-wYBCbk58XdU
+X-AUTH-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJpbS9zdXRYbS9YSnVRQmZMODdPK3MvMFlWZTV6c1FMRmM5L1BHOXFtRTBFPSIsImp0aSI6IkNtWUR2NU1LNVlVeWlrOEtHTkR3b3c9PSIsInJvbGVzIjoiQ1VTVE9NRVIiLCJpYXQiOjE2ODAyMzAxMTUsImV4cCI6MTY4MDMxNjUxNX0.45NZV-DV83BRe-L45w-28PPKyBzg-MSrNO_k-ISzNRk
 
 
 {
@@ -112,9 +125,39 @@ X-AUTH-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhcWh0Y1BzZnV5TnhmS04xV05WZm43SCsrT
       "count": 1,
       "id": 1,
       "name": "270",
-      "price": 100000
+      "price": 10000
     }
   ],
-  "name": "string",
+  "name": "나이키 에어포스",
   "sellerId": 1
 }
+### 카트 주문
+POST http://localhost:8082/customer/cart/order
+Content-Type: application/json
+X-AUTH-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJpbS9zdXRYbS9YSnVRQmZMODdPK3MvMFlWZTV6c1FMRmM5L1BHOXFtRTBFPSIsImp0aSI6IkNtWUR2NU1LNVlVeWlrOEtHTkR3b3c9PSIsInJvbGVzIjoiQ1VTVE9NRVIiLCJpYXQiOjE2ODAyMzAxMTUsImV4cCI6MTY4MDMxNjUxNX0.45NZV-DV83BRe-L45w-28PPKyBzg-MSrNO_k-ISzNRk
+
+{
+  "customerId": 1,
+  "products" : [
+    {
+      "id": 1,
+      "sellerId": 1,
+      "name": "나이키 에어포스",
+      "description": "상품설명",
+      "items": [
+        {
+          "id": 1,
+          "name": "270",
+          "count": 1,
+          "price": 10000
+        }
+      ]
+    }
+  ],
+  "messages": []
+}
+
+### 카트 보기
+GET http://localhost:8082/customer/cart
+Content-Type: application/json
+X-AUTH-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJpbS9zdXRYbS9YSnVRQmZMODdPK3MvMFlWZTV6c1FMRmM5L1BHOXFtRTBFPSIsImp0aSI6IkNtWUR2NU1LNVlVeWlrOEtHTkR3b3c9PSIsInJvbGVzIjoiQ1VTVE9NRVIiLCJpYXQiOjE2ODAyMzAxMTUsImV4cCI6MTY4MDMxNjUxNX0.45NZV-DV83BRe-L45w-28PPKyBzg-MSrNO_k-ISzNRk
