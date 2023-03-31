@@ -9,23 +9,29 @@ Content-Type: application/json
   "password": "string",
   "phone": "string"
 }
-### 이메일 인증(고객)
-GET http://localhost:8081/signup/customer/verify?email=scratch@naver.com&code=K0RCEWOwBn
 
-### 회원정보조회
-GET http://localhost:8081/customer/getInfo
+### 이메일 인증(고객)
+GET http://localhost:8081/signup/customer/verify?email=scratch@naver.com&code=RwsieFP1x9
+
+### 로그인 (고객)
+POST http://localhost:8081/signin/customer
 Content-Type: application/json
-X-AUTH-TOKEN:eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJpbS9zdXRYbS9YSnVRQmZMODdPK3MvMFlWZTV6c1FMRmM5L1BHOXFtRTBFPSIsImp0aSI6InFpalNBakR1VUZRVnlabDFkMStsZ1E9PSIsInJvbGVzIjoiQ1VTVE9NRVIiLCJpYXQiOjE2ODAwMDAwOTMsImV4cCI6MTY4MDA4NjQ5M30.IpEXDxv-Yv4VGW1yuF9p7C8LPPBr28qwdK0lc5WUYvM
 
 {
   "email": "scratch@naver.com",
   "password": "string"
 }
 
+### 회원정보조회
+GET http://localhost:8081/customer/getInfo
+Content-Type: application/json
+X-AUTH-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJpbS9zdXRYbS9YSnVRQmZMODdPK3MvMFlWZTV6c1FMRmM5L1BHOXFtRTBFPSIsImp0aSI6IkNtWUR2NU1LNVlVeWlrOEtHTkR3b3c9PSIsInJvbGVzIjoiQ1VTVE9NRVIiLCJpYXQiOjE2ODAyMzI2NzIsImV4cCI6MTY4MDMxOTA3Mn0.ZoJUyOk4zcd-5BlMGcWE9_LTsB_uKM8XZ3ymh0SJ0vA
+
+
 ### 잔액 변경(고객)
 POST http://localhost:8081/customer/balance
 Content-Type:application/json
-X-AUTH-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJpbS9zdXRYbS9YSnVRQmZMODdPK3MvMFlWZTV6c1FMRmM5L1BHOXFtRTBFPSIsImp0aSI6InFpalNBakR1VUZRVnlabDFkMStsZ1E9PSIsInJvbGVzIjoiQ1VTVE9NRVIiLCJpYXQiOjE2ODAwMDAwOTMsImV4cCI6MTY4MDA4NjQ5M30.IpEXDxv-Yv4VGW1yuF9p7C8LPPBr28qwdK0lc5WUYvM
+X-AUTH-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJpbS9zdXRYbS9YSnVRQmZMODdPK3MvMFlWZTV6c1FMRmM5L1BHOXFtRTBFPSIsImp0aSI6IkNtWUR2NU1LNVlVeWlrOEtHTkR3b3c9PSIsInJvbGVzIjoiQ1VTVE9NRVIiLCJpYXQiOjE2ODAyMzIwNzQsImV4cCI6MTY4MDMxODQ3NH0.qOQEubDapdq4czgz4tKgwntBEHuSJs8rfeyndHF13II
 
 {
   "from": "server",
@@ -47,7 +53,7 @@ Content-Type: application/json
 
 
 ### 이메일 인증 (샐러)
-GET http://localhost:8081/signup/seller/verify?email=wlals4253@gmail.com&code=hjKAlPh9UL
+GET http://localhost:8081/signup/seller/verify?email=wlals4253@gmail.com&code=07TdeJP8UN
 
 
 

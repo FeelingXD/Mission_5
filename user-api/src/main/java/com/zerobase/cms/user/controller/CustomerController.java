@@ -10,12 +10,14 @@ import com.zerobase.cms.user.service.customer.CustomerService;
 import com.zerobase.domain.common.UserVo;
 import com.zerobase.domain.config.JwtAuthenticationProvider;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/customer")
 @RequiredArgsConstructor
+@Slf4j
 public class CustomerController {
 
 
@@ -27,9 +29,11 @@ public class CustomerController {
     public ResponseEntity<CustomerDto> getInfo(@RequestHeader(name = "X-AUTH-TOKEN") String token){
 
         UserVo vo = provider.getUserVo(token);
-
+        log.info("vo",vo.toString());
+        log.info("vo status",vo.getEmail(),vo.getId());
         Customer c = customerService.findByIdAndEmail(vo.getId(), vo.getEmail()).orElseThrow(
                 () -> new CustomException(ErrorCode.NOT_FOUND_USER));
+
         return ResponseEntity.ok(CustomerDto.from(c));
     }
 

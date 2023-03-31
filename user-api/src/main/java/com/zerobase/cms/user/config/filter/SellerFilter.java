@@ -10,7 +10,7 @@ import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 
-@WebFilter(urlPatterns = "/customer/*")
+@WebFilter(urlPatterns = "/seller/*")
 @RequiredArgsConstructor
 public class SellerFilter implements Filter {
 
@@ -27,7 +27,7 @@ public class SellerFilter implements Filter {
         }
         UserVo vo = jwtAuthenticationProvider.getUserVo(token);
         sellerService.findByIdAndEmail(vo.getId(),vo.getEmail()).orElseThrow(
-                () -> new ServletException("Invalid access")
+                () -> new ServletException("이메일 없음")
         );
         chain.doFilter(request,response);
 

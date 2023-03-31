@@ -63,7 +63,7 @@ public class CartApplication {
     public void clearCart(Long customerId){
         cartService.putCart(customerId,null);
     }
-    private Cart refreshCart(Cart cart){
+    protected Cart refreshCart(Cart cart){
         // 1.
         Map<Long,Product> productMap = productSearchService.getListByProductIds(
                         cart.getProducts().stream().map(Cart.Product::getId).collect(Collectors.toList()))
